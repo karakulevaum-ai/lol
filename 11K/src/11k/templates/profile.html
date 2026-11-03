@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой профиль</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .profile-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        .profile-card h2 { text-align: center; color: #333; margin-bottom: 20px; }
+        .avatar {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: #007bff; color: white;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        .info-row {
+            display: flex; justify-content: space-between;
+            padding: 10px 0; border-bottom: 1px solid #eee;
+            font-size: 15px;
+        }
+        .info-row:last-of-type { border-bottom: none; }
+        .info-row .label { color: #888; }
+        .info-row .value { color: #333; font-weight: 500; }
+        button {
+            width: 100%; padding: 10px; margin-top: 20px;
+            background: #dc3545; color: white;
+            border: none; border-radius: 5px;
+            cursor: pointer; font-size: 16px;
+            transition: background 0.3s;
+        }
+        button:hover { background: #c82333; }
+    </style>
+</head>
+<body>
+    <div class="profile-card">
+        <h2>Мой профиль</h2>
+
+        <div class="avatar">{{ username[0]|upper if username else '?' }}</div>
+
+        <div class="info-row">
+            <span class="label">Имя</span>
+            <span class="value">{{ username }}</span>
+        </div>
+        <div class="info-row">
+            <span class="label">Email</span>
+            <span class="value">{{ email }}</span>
+        </div>
+        <div class="info-row">
+            <span class="label">ID</span>
+            <span class="value">#{{ user_id }}</span>
+        </div>
+
+        <button id="logout-btn">Выйти</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js"
+            integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
